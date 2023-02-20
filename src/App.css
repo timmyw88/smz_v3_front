@@ -1,38 +1,475 @@
-.App {
-  text-align: center;
+:root {
+  --red-color: #ed3838;
+  --yellow-color: #dfa710;
+  --black-color: #000;
+  --dark-red: #d60808;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #333;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+ul {
+  list-style: none;
+}
+
+/* ================================================ */
+/* Main Page */
+.main-page {
+  max-width: 100vw;
+  height: 100vh;
+  padding: 10px 20px 10px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-page .head {
+  height: 10%;
+  padding: 15px 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-page .head h2 {
+  font-size: 55px;
+  font-weight: 700;
+  font-style: italic;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
+}
+
+.main-page .head .date-time-div {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+.main-page .head .date-time {
+  font-size: 35px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.main-page .body {
+  display: flex;
+  height: 90%;
+}
+
+.main-page .currency-div {
+  /* flex: 3; */
+  width: 70%;
+  margin: 0 10px;
+  /* border: 1px solid gray; */
+}
+
+.main-page .booking-div {
+  /* flex: 1; */
+  width: 30%;
+  padding: 0 10px;
+  margin: 10px 0;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  background-color: #333;
+  z-index: 1;
+}
+
+/* ================================================ */
+/* Currencies Component */
+.currencies {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+}
+
+.currencies .header {
+  /* flex: 1; */
+  height: 10%;
+  display: flex;
+  padding-left: 10px;
+  border-bottom: 1px solid #666;
+}
+
+.currencies .header .box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.currencies .header .box div {
+  position: relative;
+  flex: 1;
+  height: 70%;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.currencies .header .box div .cross-sm {
+  position: absolute;
+  top: 30px;
+  left: 5px;
+  width: 90%;
+  height: 4px;
+  background-color: var(--dark-red);
+  transform: rotate(-27deg);
+}
+
+.currencies .header .box p {
+  flex: 3;
+  color: white;
+  font-size: 30px;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
+}
+
+.currencies .body {
+  /* flex: 9; */
+  height: 90%;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
+  align-content: flex-start;
+}
+
+.currencies .body .box {
+  position: relative;
+  width: 24%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 0 15px 0;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.currencies .body .box .code {
+  font-size: 70px;
+  font-weight: 900;
+}
+
+.currencies .body .box .cname {
+  font-size: 20px;
+}
+
+.currencies .body .box .cross {
+  position: absolute;
+  top: 67px;
+  width: 100%;
+  height: 8px;
+  background-color: var(--dark-red);
+  transform: rotate(-23deg);
+}
+
+.box-red {
+  box-shadow: 0 0 5px var(--red-color);
+}
+
+.box-yellow {
+  box-shadow: 0 0 5px var(--yellow-color);
+}
+
+.box-black {
+  box-shadow: 0 0 5px var(--black-color);
+}
+
+/* ================================================ */
+/* Booking Component */
+.booking {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking .top {
+  flex: 1;
+  position: relative;
+  /* border: 1px solid red; */
+}
+
+.booking .top p {
+  font-size: 40px;
+}
+
+.booking .top .make {
+  position: absolute;
+  top: 110px;
+  left: 30px;
+  font-size: 70px;
+  font-weight: 700;
+  margin-left: 20px;
+  transform: rotate(-5deg);
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.9);
+}
+
+.booking .middle {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 70px;
+}
+
+.booking .middle .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 3px var(--dark-red);
+}
+
+.booking .middle .content h2 {
+  font-size: 90px;
+  margin-bottom: 15px;
+}
+
+.booking .middle .content p {
+  font-size: 27px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.booking .bottom {
+  flex: 6;
+  padding-top: 50px;
+}
+
+.booking .bottom ul li {
+  font-size: 22px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.booking .bottom .logo-div {
+  margin-top: 40px;
+  text-align: right;
+}
+
+.booking .bottom .logo-div .logo {
+  font-size: 70px;
+  font-weight: 900;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+  line-height: 1.1;
+}
+
+.booking .bottom .logo-div .desc {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+/* ================================================ */
+/* Common CSS */
+.bg-red {
+  background-color: var(--red-color);
+  color: #fff;
+}
+
+.bg-yellow {
+  background-color: var(--yellow-color);
+  color: #000;
+}
+
+.bg-black {
+  background-color: var(--black-color);
+  color: #aaa;
+}
+
+.bg-blue {
+  background-color: steelblue;
+  color: #fff;
+}
+
+.bg-dark-red {
+  background-color: var(--dark-red);
+  color: #fff;
+}
+
+.text-white {
+  color: #fff;
+}
+
+/* ================================================
+/* Form Component */
+.form {
+  padding: 5px;
+  display: flex;
+  /* border: 1px solid red; */
+}
+
+.form .form-data-div {
+  width: 60%;
+}
+
+.form .form-data-div .form-box {
+  margin-bottom: 10px;
+}
+
+.form .form-data-div .form-box h4 {
+  color: white;
+  text-transform: uppercase;
+  padding: 5px 0;
+  margin-bottom: 5px;
+  border-bottom: 1px solid white;
+}
+
+.form .form-data-div .form-group {
+  display: flex;
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+.form .form-data-div .form-group input {
+  width: 50%;
+  height: 30px;
+  border: none;
+  border-right: 1px solid #aaa;
+  border-radius: 5px 0 0 5px;
+  padding: 5px 10px;
+  outline: none;
+  background-color: #ccc;
+  text-transform: uppercase;
+}
+
+.form .form-data-div .form-group select {
+  width: 50%;
+  height: 30px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.form .update-div {
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.form .update-div button {
+  margin-top: 50px;
+  width: 60%;
+  height: 50px;
+  background-color: green;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
   color: white;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 0 10px green;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.form .update-div button:hover {
+  background-color: darkgreen;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ================================================
+/* Currencies Component */
+/* .currencies2 {
+  display: flex;
+  max-width: 100%;
+  height: 100%;
 }
+
+.currencies2 .column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.currencies2 .column .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.header-red {
+  border: 2px solid var(--red-color);
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 0 5px var(--red-color);
+}
+
+.header-yellow {
+  border: 2px solid var(--yellow-color);
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 0 5px var(--yellow-color);
+}
+
+.header-black {
+  border: 2px solid var(--black-color);
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 0 5px var(--black-color);
+}
+
+.body-red {
+  border: 2px solid var(--red-color);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 5px var(--red-color);
+}
+
+.body-yellow {
+  border: 2px solid var(--yellow-color);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 5px var(--yellow-color);
+}
+
+.body-black {
+  border: 2px solid var(--black-color);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 5px var(--black-color);
+}
+
+.currencies2 .column .header p {
+  font-size: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.currencies2 .column .body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+}
+
+.currencies2 .column .body .box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 0 15px 0;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.currencies2 .column .body .box .code {
+  font-size: 70px;
+  font-weight: 900;
+}
+
+.currencies2 .column .body .box .cname {
+  font-size: 20px;
+} */
